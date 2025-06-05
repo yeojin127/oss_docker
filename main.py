@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from models import StudentRequest, StudentResponse, StudentSummary
+from models import StudentRequest, StudentResponse, StudentSummary, Course
 from typing import List
 
 app = FastAPI(title="학생 성적 처리 API")
@@ -14,7 +14,7 @@ grade_mapping = {
 }
 
 # GPA 계산 함수: 과목들 받아서 평점 계산해
-def calculate_gpa(courses: List[StudentRequest.courses.__args__[0]]) -> (float, int):
+def calculate_gpa(courses: List[Course]) -> (float, int):
     total_points = 0.0
     total_credits = 0
     for course in courses:
